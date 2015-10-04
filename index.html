@@ -72,3 +72,77 @@ console.log({
   }
 });
 </script>
+<script type="text/javascript" src="http://pubnub.github.io/eon/lib/eon-chart.js"></script>
+<link type="text/css" rel="stylesheet" href="http://pubnub.github.io/eon/lib/eon.css" />
+<div id="chart"></div>
+<script type="text/javascript">
+var __eon_pubnub = PUBNUB.init({
+  subscribe_key: "demo-36"
+});
+var __eon_cols = ["rpm"]; 
+var __eon_labels = {}; 
+chart = eon.chart({
+  pubnub: __eon_pubnub,
+  channel: "qt-data-simulator",
+  history: true,
+  flow: false,
+  rate: 1000,
+  limit: 5,
+  generate: {
+    bindto: "#chart",
+    data: {
+      //colors: {"rpm":"#D70060","photosensor":"#E54028","ambient_temperature":"#F18D05","humidity":"#113F8C"},
+      type: "gauge"
+    },
+    gauge: {
+        label: {
+            format: function(value, ratio) {
+                return value;
+            },
+            show: false // to turn off the min/max labels.
+        },
+    min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
+    max: 8, // 100 is default
+    units: ' rpm'//,
+    //width: 39 // for adjusting arc thickness
+    },
+    transition: {
+      duration: 250
+    },
+    axis: {
+      x: {
+        label: ""
+      },
+      y: {
+        label: ""
+      }
+    },
+    grid: {
+      x: {
+        show: false 
+      },
+      y: {
+        show: false 
+      }
+    },
+    tooltip: {
+     show: true
+    },
+    point: {
+      show: true
+    }
+  },
+  transform: function(message) {
+    var message = eon.c.flatten(message);
+    var array = __eon_cols.map(function(arg){
+      return [__eon_labels[arg] || arg, message[arg]];
+    });
+console.log({
+      columns: array
+    })
+    return {
+      columns: array
+    };
+  }
+});
+</script>
