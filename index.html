@@ -74,14 +74,14 @@ console.log({
 </script>
 <script type="text/javascript" src="http://pubnub.github.io/eon/lib/eon-chart.js"></script>
 <link type="text/css" rel="stylesheet" href="http://pubnub.github.io/eon/lib/eon.css" />
-<div id="chart"></div>
+<div id="chart2"></div>
 <script type="text/javascript">
 var __eon_pubnub = PUBNUB.init({
   subscribe_key: "demo-36"
 });
 var __eon_cols = ["rpm"]; 
 var __eon_labels = {}; 
-chart = eon.chart({
+chart2 = eon.chart({
   pubnub: __eon_pubnub,
   channel: "qt-data-simulator",
   history: true,
@@ -89,7 +89,7 @@ chart = eon.chart({
   rate: 1000,
   limit: 5,
   generate: {
-    bindto: "#chart",
+    bindto: "#chart2",
     data: {
       //colors: {"rpm":"#D70060","photosensor":"#E54028","ambient_temperature":"#F18D05","humidity":"#113F8C"},
       type: "gauge"
