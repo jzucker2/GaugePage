@@ -1,5 +1,47 @@
-<script src="http://pubnub.github.io/eon/lib/eon-chart.js"></script>
-<link type="text/css" rel="stylesheet" href="http://pubnub.github.io/eon/lib/eon.css" />
+<html>
+<head>
+  <title>PubNub QT EON Gauge Page</title>
+  <script src="http://pubnub.github.io/eon/lib/eon-chart.js"></script>
+  <link type="text/css" rel="stylesheet" href="http://pubnub.github.io/eon/lib/eon.css" />
+  <style type="text/css">
+  .btn-primary {
+    color: #fff;
+    background-color: #ce1126;
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 30px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-family: "proxima-nova-thin","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+    line-height: 1.52857;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 2px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    text-decoration: none;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background: #950c1c;
+  }
+  .center {
+    text-align: center;
+  }
+  .padding-top {
+    padding-top: 20px;
+  }
+  </style>
+</head>
+<body>
 
 <h3 align="center">Speed</h3>
 <div id="chart2"></div>
@@ -219,17 +261,8 @@ console.log({
   }
 });
 })();</script>
-<div class="boxdiv" onClick="window.open('https://www.pubnub.com/developers/qt', '_blank');">Sign up for the PubNub Qt SDK!</div>
-<style type="text/css">
-.boxdiv {
-    cursor:pointer;
-    margin-left: auto;
-    margin-right: auto;
-    width:220px;
-    height:35px;
-    background-color:#FF0000;
-    color:#fff;
-    text-align:center;
-    font:13px/17px Arial, Helvetica, sans-serif;
-    }
-</style>
+<div class="center padding-top">
+  <a target="_blank" class="btn btn-primary" href="https://www.pubnub.com/developers/qt">Sign up for the PubNub Qt SDK!</a>
+</div>
+</body>
+</html>
